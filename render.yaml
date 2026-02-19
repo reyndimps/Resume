@@ -1,7 +1,7 @@
 services:
   - type: web
     name: resume
-    env: php
+    runtime: php
     plan: free
     buildCommand: composer install && npm install && npm run build
     startCommand: vendor/bin/heroku-php-apache2 public/
@@ -10,3 +10,5 @@ services:
         value: production
       - key: APP_DEBUG
         value: "false"
+      - key: APP_KEY
+        generateValue: true
